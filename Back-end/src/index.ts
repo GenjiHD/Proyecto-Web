@@ -7,8 +7,8 @@ const app = express();
 // Configurar rutas para el acceso personal
 
 import personalRutas from './routes/personalRutas';
-
-
+import clientesRutas from './routes/clientesRutas';
+import articulosRutas from './routes/articulosRutas';
 // Todo lo que regresa al usuario es de tipo JSON
 
 app.use(express.json());
@@ -19,6 +19,8 @@ const port = 3001;
 
 // Activar la ruta base
 app.use('/api/personal/',personalRutas);
+app.use('/api/cliente/', clientesRutas);
+app.use('/api/articulos/',articulosRutas);
 
 // Ruta
 // app.get('/hola',(_req,res) => {
