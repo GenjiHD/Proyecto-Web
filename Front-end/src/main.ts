@@ -1,15 +1,9 @@
-import './assets/main.css'
+import { createApp } from 'vue'  // Importa la función `createApp` de Vue para crear una instancia de la aplicación.
+import App from './App.vue'  // Importa el componente principal de la aplicación, `App.vue`.
+import router from './router'  // Importa el enrutador para manejar la navegación entre vistas.
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+const app = createApp(App)  // Crea la aplicación Vue pasando el componente `App` como root.
 
-const app = createApp(App);
+app.use(router)  // Utiliza el enrutador dentro de la aplicación para permitir la navegación entre páginas.
 
-//Paquete para la impresion en Excel
-import JsonExcel from 'vue-json-excel3';
-app.component('downloadExcel', JsonExcel);
-
-app.use(router)
-
-app.mount('#app')
+app.mount('#app')  // Monta la aplicación en el elemento HTML con id "app".

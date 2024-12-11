@@ -1,14 +1,18 @@
 <template>
+    <!-- Contenedor principal, muestra los datos solo si existe información de `personal[0]` -->
     <div class="container mt-5" v-if="personal[0]">
+        <!-- Tarjeta que contiene el formulario de confirmación de eliminación -->
         <div class="card">
             <div class="card-header">
-                <h4>Borrar Personal</h4>
+                <h4>Borrar Personal</h4> <!-- Título de la tarjeta -->
             </div>
+            <!-- Mensaje de advertencia al usuario -->
             <div class="alert alert-warning" role="alert">
                 ¿Seguro de borrar la información?
                 <i class="fa fa-warning"></i>
             </div>
             <div class="card-body">
+                <!-- Información del registro a eliminar, todos los campos están deshabilitados -->
                 <div class="mb-3">
                     Id
                     <input type="text" class="form-control" v-model="personal[0].id" disabled>
@@ -29,6 +33,7 @@
                     Estatus
                     <input type="text" class="form-control" v-model="personal[0].estatus" disabled>
                 </div>
+                <!-- Botón para confirmar la eliminación del registro -->
                 <div class="mb-3">
                     <button class="btn btn-danger" @click="deletePersonal(personal[0])">Eliminar</button>
                 </div>
@@ -38,30 +43,35 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { UsePersonal } from '../controllers/UsePersonal';
+import { onMounted, ref, watch } from 'vue'; // Importa funciones reactivas de Vue.
+import { useRoute, useRouter } from 'vue-router'; // Manejo de rutas dinámicas.
+import { UsePersonal } from '../controllers/UsePersonal'; // Controlador para datos del personal.
+
+// Extrae funciones y datos del controlador.
 const { getPersonalId, deletePersonal, message, personal } = UsePersonal();
-let idPersona = 0;
-// Para los parametros de la URL
+
+let idPersona = 0; // Variable para almacenar el ID del personal desde la URL.
+
+// Obtiene información de la ruta actual.
 const route = useRoute();
-// Para moverme de URL
+// Redirige a otra ruta después de la acción.
 const routeRedirect = useRouter();
-// Observador - Watch
+
+// Observador que redirige al listado de personal cuando `message` cambia.
 watch(
-    () => message.value,
-    newId => {
-        routeRedirect.push('/personal');
+    () => message.value, // Observa el valor del mensaje.
+    () => {
+        routeRedirect.push('/personal'); // Redirige al listado de personal.
     }
 );
 
-onMounted(async() => {
-    idPersona = Number(route.params.id);
-    await getPersonalId(Number(idPersona));
+// Acción cuando el componente se monta.
+onMounted(async () => {
+    idPersona = Number(route.params.id); // Obtiene el ID desde los parámetros de la URL.
+    await getPersonalId(idPersona); // Llama a la función para obtener los datos del personal.
 });
-
 </script>
 
 <style scoped>
-
+/* Estilo específico para este componente */
 </style>
