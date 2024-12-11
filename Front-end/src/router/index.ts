@@ -1,24 +1,24 @@
-import ArticulosVue from '@/modulos/articulos/views/ArticulosVue.vue'
+import ArticulosVue from '../modules/articulos/views/ArticulosVue.vue'
 import { getAuth } from 'firebase/auth'
-import ArticulosEditarVue from '@/modulos/articulos/views/ArticulosEditarVue.vue'
-import ClienteAgregarVue from '@/modulos/cliente/views/ClienteAgregarVue.vue'
-import ClienteBorrarVue from '@/modulos/cliente/views/ClienteBorrarVue.vue'
-import ClienteEditarVue from '@/modulos/cliente/views/ClienteEditarVue.vue'
-import ClienteVue from '@/modulos/cliente/views/ClienteVue.vue'
-import PersonalAgregarVue from '@/modulos/personal/views/PersonalAgregarVue.vue'
-import PersonalBorrar from '@/modulos/personal/views/PersonalBorrar.vue'
-import PersonalEditarVue from '@/modulos/personal/views/PersonalEditarVue.vue'
-import PersonalVue from '@/modulos/personal/views/PersonalVue.vue'
+import ArticulosEditarVue from '../modules/articulos/views/ArticulosEditarVue.vue'
+import ClienteAgregarVue from '../modules/cliente/views/ClienteAgregarVue.vue'
+import ClienteBorrarVue from '../modules/cliente/views/ClienteBorrarVue.vue'
+import ClienteEditarVue from '../modules/cliente/views/ClienteEditar.Vue.vue'
+import ClienteVue from '../modules/cliente/views/ClienteVue.vue'
+import PersonalAgregarVue from '../modules/personal/views/PersonalAgregarVue.vue'
+import PersonalBorrar from '../modules/personal/views/PersonalEliminarVue.vue'
+import PersonalEditarVue from '../modules/personal/views/PersonalEditarVue.vue'
+import PersonalVue from '../modules/personal/views/PersonalVue.vue'
 import { createRouter, createWebHistory } from 'vue-router'
-import ArticulosBorrarVue from '@/modulos/articulos/views/ArticulosBorrarVue.vue'
-import ArticulosAgregarVue from '@/modulos/articulos/views/ArticulosAgregarVue.vue'
-import BienvenidaVue from '@/modulos/principal/views/BienvenidaVue.vue'
-import SignUpVue from '@/modulos/auth/views/SignUpVue.vue'
-import SignInVue from '@/modulos/authentication/views/SignInVue.vue'
-import ComprasVue from '@/modulos/compras/views/ComprasVue.vue'
-import ComprasAgregarVue from '@/modulos/compras/views/ComprasAgregarVue.vue'
-import RegistrosVue from '../modulos/registros/views/RegistrosVue.vue'
-import RegistrosAgregarVue from '@/modulos/registros/views/RegistrosAgregarVue.vue'
+import ArticulosBorrarVue from '../modules/articulos/views/ArticulosBorrar.vue'
+import ArticulosAgregarVue from '../modules/articulos/views/ArticulosAgregarVue.vue'
+import BienvenidaVue from '../modules/principal/views/BienvenidaVue.vue'
+import SignUpVue from '../modules/authentication/views/SignUpVue.vue'
+import SignInVue from '../modules/authentication/views/SignInVue.vue'
+import ComprasVue from '../modules/compras/views/ComprasVue.vue'
+import ComprasAgregarVue from '../modules/compras/views/ComprasAgregarVue.vue'
+import RegistrosVue from '../modules/registros/views/RegistrosVue.vue'
+import RegistrosAgregarVue from '../modules/registros/views/RegistrosAgregarVue.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,12 +36,12 @@ const router = createRouter({
     {
       path: '/registrar',
       name: 'registrar',
-      component: SignUPVue,
+      component: SignUpVue,
     },
     {
       path: '/validacion',
       name: 'validacion',
-      component: SignINVue,
+      component: SignInVue,
     },
     {
       path: '/personal',
